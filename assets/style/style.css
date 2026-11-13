@@ -1,0 +1,174 @@
+/* // Atelier — Week Project Settimana VI
+// Definisci qui le tue variabili, mixin, override Bootstrap.
+
+
+// === Variabili (definisci $brand-primary, $brand-secondary, $radius-base, ecc.) ===
+
+
+
+// === Mixin (definisci almeno @mixin card-elevata o equivalente) ===
+
+
+
+/*Override Bootstrap (sovrascrivi .btn-primary, .bg-primary, .text-primary col tuo colore brand) */
+
+
+/*=== Stili custom delle sezioni (header sticky, hero, servizi, contatti, footer) === */
+
+
+:root {
+  --brand-primary: hsl(20, 30%, 35%);
+  --brand-primary-hover: hsl(20, 30%, 27%);
+  /* bg navbar e footer*/
+  --brand-secondary: hsl(20, 20%, 15%);
+  /* link footer */
+  --footer-link-hover: hsl(40, 30%, 90%);
+  /* box shadow */
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+  --body-bg: #f8f6f4;
+  --section-bg: #ffffff;
+  --card-bg: #ffffff;
+  --muted-color: #6f655e;
+  --border-color: #e6e0da;
+  --radius-base: 8px;
+
+}
+
+
+body {
+  background-color: var(--body-bg);
+  color: var(--brand-primary);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.section-pad {
+  padding: 5rem 0;
+  background-color: var(--body-bg);
+}
+
+.section-alt {
+  background-color: var(--section-bg);
+}
+
+.text-muted-custom {
+  color: var(--muted-color);
+}
+
+
+/* navbar */
+.site-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background-color: var(--brand-secondary);
+  transition: background-color 300ms ease;
+}
+
+
+/* hero section */
+.hero {
+  min-height: 80vh;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.hero-testo {
+  max-width: 600px;
+  opacity: 0.9;
+}
+
+
+/* footer */
+.site-footer {
+  background-color: var(--brand-secondary);
+  transition: background-color 300ms ease;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.footer-link:hover {
+  opacity: 1;
+  color: var(--footer-link-hover);
+  text-decoration: underline;
+}
+
+
+/* override bootstrap con !important */
+
+.btn-primary,
+.bg-primary {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-hover) !important;
+  border-color: var(--brand-primary-hover) !important;
+}
+
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.btn-outline-primary {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+
+/* card elevata + transition + hover */
+.card-elevata {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.card-elevata:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+}
+
+
+
+/* dark mode: cambiano esclusivamente sfondo pagina, le card ... */
+body.dark {
+  --body-bg: #1a1614;
+  --section-bg: #211c19;
+  --card-bg: #2a2420;
+  --muted-color: #b5aaa2;
+  --border-color: #3a322d;
+  --text-color-dark: #f1ebe6;
+}
+
+/* testo non più marorne bootstrap */
+body.dark {
+  color: var(--text-color-dark);
+}
+
+/* form tema scuro */
+body.dark .form-control,
+body.dark .form-select {
+  background-color: var(--card-bg);
+  color: var(--text-color-dark, #f1ebe6);
+  border-color: var(--border-color);
+}
